@@ -3,6 +3,19 @@ using namespace std;
 #include <iostream>
 #include <cmath>
 
+bool checkEquations(double &a, double &b, double &c){
+    bool functionOne = (((floor(6*c - 4*b)) == (6*c - 4*b)) && ((6*c - 4*b) <= 17) && (1 <= (6*c - 4*b)));
+    bool functionTwo = (((floor(8 - b)) == (8 - b)) && ((8 - b) <= 17) && (1 <= (8 - b)));
+    bool functionThree = (((floor((pow(a, b) - 4) / (6*c + 1))) == ((pow(a, b) - 4) / (6*c + 1))) && (((pow(a, b) - 4) / (6*c + 1)) <= 17) && (1 <= ((pow(a, b) - 4) / (6*c + 1))));
+    bool functionFour = (((floor((b + c) / (c - 1))) == ((b + c) / (c - 1))) && (((b + c) / (c - 1)) <= 17) && (1 <= ((b + c) / (c - 1))));
+    bool functionFive = (((floor(pow(b, 2) - (b / c))) == (pow(b, 2) - (b / c))) && ((pow(b, 2) - (b / c)) <= 17) && (1 <= (pow(b, 2) - (b / c))));
+    bool functionSix = (((floor(sqrt(30 + a) / c)) == (sqrt(30 + a) / c)) && ((sqrt(30 + a) / c) <= 17) && (1 <= (sqrt(30 + a) / c)));
+    bool functionSeven = (((floor((a + b) / (c - 3*a))) == ((a + b) / (c - 3*a))) && (((a + b) / (c - 3*a)) <= 17) && (1 <= ((a + b) / (c - 3*a))));
+    bool functionEight = (((floor((b - 3*a) / (a - c))) == ((b - 3*a) / (a - c))) && (((b - 3*a) / (a - c)) <= 17) && (1 <= ((b - 3*a) / (a - c))));
+    
+    return (functionOne && functionTwo && functionThree && functionFour && functionFive && functionSix && functionSeven && functionEight);
+}
+
 void findVariables(double &a, double &b, double &c){
     /*
      * Since the grid is a 13x13 square, the area is 169, for which the highest triangular number
@@ -23,16 +36,3 @@ void findVariables(double &a, double &b, double &c){
     cout << "b: " << b << endl;
     cout << "c: " << c << endl;
 };
-
-bool checkEquations(double &a, double &b, double &c){
-    bool functionOne = (((floor(6*c - 4*b)) == (6*c - 4*b)) && ((6*c - 4*b) <= 17) && (1 <= (6*c - 4*b)));
-    bool functionTwo = (((floor(8 - b)) == (8 - b)) && ((8 - b) <= 17) && (1 <= (8 - b)));
-    bool functionThree = (((floor((pow(a, b) - 4) / (6*c + 1))) == ((pow(a, b) - 4) / (6*c + 1))) && (((pow(a, b) - 4) / (6*c + 1)) <= 17) && (1 <= ((pow(a, b) - 4) / (6*c + 1))));
-    bool functionFour = (((floor((b + c) / (c - 1))) == ((b + c) / (c - 1))) && (((b + c) / (c - 1)) <= 17) && (1 <= ((b + c) / (c - 1))));
-    bool functionFive = (((floor(pow(b, 2) - (b / c))) == (pow(b, 2) - (b / c))) && ((pow(b, 2) - (b / c)) <= 17) && (1 <= (pow(b, 2) - (b / c))));
-    bool functionSix = (((floor(sqrt(30 + a) / c)) == (sqrt(30 + a) / c)) && ((sqrt(30 + a) / c) <= 17) && (1 <= (sqrt(30 + a) / c)));
-    bool functionSeven = (((floor((a + b) / (c - 3*a))) == ((a + b) / (c - 3*a))) && (((a + b) / (c - 3*a)) <= 17) && (1 <= ((a + b) / (c - 3*a))));
-    bool functionEight = (((floor((b - 3*a) / (a - c))) == ((b - 3*a) / (a - c))) && (((b - 3*a) / (a - c)) <= 17) && (1 <= ((b - 3*a) / (a - c))));
-    
-    return (functionOne && functionTwo && functionThree && functionFour && functionFive && functionSix && functionSeven && functionEight);
-}
